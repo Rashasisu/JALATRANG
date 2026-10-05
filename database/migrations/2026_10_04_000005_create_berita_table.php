@@ -4,32 +4,26 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
-    /**
-     * Run the migrations.
-     */
+return new class extends Migration {
     public function up(): void
     {
-        Schema::create('beritas', function (Blueprint $table) {
+        Schema::create('berita', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('kategori_berita_id')->nullable()->constrained('kategori_beritas')->nullOnDelete();
             $table->string('judul');
             $table->string('slug')->unique();
             $table->longText('isi');
             $table->string('gambar')->nullable();      // nama file di public/assets/images/web_berita
+            $table->foreignId('kategori_id')->nullable()
+                  ->constrained('kategori_berita')->nullOnDelete();
+            $table->dateTime('tanggal')->index();
             $table->unsignedInteger('views')->default(0);
-            $table->boolean('is_published')->default(true);
-            $table->timestamp('published_at')->nullable();
+            $table->string('status', 20)->default('published')->index(); // published | draft
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('beritas');
+        Schema::dropIfExists('berita');
     }
 };

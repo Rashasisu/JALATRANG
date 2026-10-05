@@ -52,13 +52,13 @@ class BeritaSeeder extends Seeder
             $berita = Berita::updateOrCreate(
                 ['slug' => Str::slug($judul)],
                 [
-                    'kategori_berita_id' => KategoriBerita::where('nama', $kat)->value('id'),
-                    'judul'        => $judul,
-                    'isi'          => '<p>JalatrangNews; '.$judul.'.</p>',
-                    'gambar'       => $gambar,
-                    'views'        => $views,
-                    'is_published' => true,
-                    'published_at' => $tgl.' 08:00:00',
+                    'kategori_id' => KategoriBerita::where('nama', $kat)->value('id'),
+                    'judul'       => $judul,
+                    'isi'         => '<p>JalatrangNews; '.$judul.'.</p>',
+                    'gambar'      => $gambar,
+                    'views'       => $views,
+                    'status'      => 'published',
+                    'tanggal'     => $tgl.' 08:00:00',
                 ]
             );
 

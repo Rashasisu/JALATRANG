@@ -1,36 +1,40 @@
 <?php
+
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 class Berita extends Model
 {
-    protected $fillable = [
-        'kategori_berita_id','judul','slug','isi','gambar','views','is_published','published_at',
-    ];
+    protected $table = 'berita';
+    protected $guarded = [];
+    protected $casts = ['tanggal' => 'datetime'];
+    protected $fillable = ['judul', 'slug', 'isi', 'gambar', 'kategori_id',
+                       'tanggal', 'views', 'status'];
 
-    protected $casts = ['published_at' => 'datetime', 'is_published' => 'boolean'];
-
-    public function kategori() { return $this->belongsTo(KategoriBerita::class, 'kategori_berita_id'); }
-    public function tags()     { return $this->belongsToMany(Tag::class); }
-
-    public function scopePublished($q)
+    public function kategori()
     {
-        return $q->where('is_published', true)->where('published_at', '<=', now());
+        return $this->belongsTo(KategoriBerita::class, 'kategori_id');
     }
 
-    public function getGambarUrlAttribute(): string
+    public function tags()
     {
-        return $this->gambar
-            ? asset('assets/images/web_berita/'.$this->gambar)
-            : asset('assets/template/img/no_image.jpg');
+        return $this->belongsToMany(Tag::class, 'berita_tag');
     }
 
-    public function getRingkasanAttribute(): string
+    public function scopePublished($query)
     {
-        return Str::limit(trim(strip_tags(html_entity_decode($this->isi))), 90);
+        return $query->where('status', 'published');
     }
 
-    public function getRouteKeyName(): string { return 'slug'; }
+    /** Ringkasan teks polos untuk kartu (HTML & entity dibersihkan). */
+    protected function ringkasan(): Attribute
+    {
+        return Attribute::get(fn () => Str::limit(
+            trim(strip_tags(html_entity_decode($this->isi, ENT_QUOTES | ENT_HTML5))),
+            90
+        ));
+    }
 }
