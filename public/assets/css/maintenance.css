@@ -1,0 +1,354 @@
+    #maintenanceBypassBanner.mnt-bypass {
+        position: fixed !important;
+        top: 16px !important;
+        right: 16px !important;
+        z-index: 99999999 !important;
+        background: rgba(15, 23, 42, 0.95) !important;
+        backdrop-filter: blur(16px) !important;
+        -webkit-backdrop-filter: blur(16px) !important;
+        color: #ffffff !important;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+        font-size: 12px !important;
+        font-weight: 700 !important;
+        padding: 10px 18px !important;
+        border-radius: 16px !important;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5) !important;
+        border: 1px solid rgba(16, 185, 129, 0.4) !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 12px !important;
+        transition: transform 0.4s ease, opacity 0.4s ease !important;
+        box-sizing: border-box !important;
+    }
+    #maintenanceBypassBanner.mnt-hidden {
+        transform: translateY(-100px) !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+    .mnt-dot-green {
+        width: 10px !important;
+        height: 10px !important;
+        border-radius: 50% !important;
+        background-color: #34d399 !important;
+        box-shadow: 0 0 10px #34d399 !important;
+        display: inline-block !important;
+    }
+
+    /* 1-LINE BOTTOM BAR FOR NON-INTRUSIVE WARNING */
+    #maintenanceWarningToast.mnt-toast {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        z-index: 99999990 !important;
+        background: rgba(15, 23, 42, 0.97) !important;
+        backdrop-filter: blur(16px) !important;
+        -webkit-backdrop-filter: blur(16px) !important;
+        color: #ffffff !important;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+        padding: 8px 20px !important;
+        border-radius: 0 !important;
+        border: none !important;
+        border-top: 2px solid #f59e0b !important;
+        box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.4) !important;
+        transition: transform 0.3s ease, opacity 0.3s ease !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+    }
+    #maintenanceWarningToast.mnt-hidden {
+        transform: translateY(100%) !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        display: none !important;
+    }
+    .mnt-toast-content {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        gap: 16px !important;
+    }
+    .mnt-toast-left {
+        display: flex !important;
+        align-items: center !important;
+        gap: 12px !important;
+        min-width: 0 !important;
+        flex: 1 !important;
+    }
+    .mnt-toast-badge {
+        font-size: 11px !important;
+        font-weight: 800 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
+        color: #fbbf24 !important;
+        background: rgba(245, 158, 11, 0.18) !important;
+        padding: 3px 8px !important;
+        border-radius: 6px !important;
+        border: 1px solid rgba(245, 158, 11, 0.4) !important;
+        white-space: nowrap !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+    }
+    .mnt-toast-pulse {
+        width: 8px !important;
+        height: 8px !important;
+        border-radius: 50% !important;
+        background-color: #f59e0b !important;
+        box-shadow: 0 0 8px #f59e0b !important;
+        display: inline-block !important;
+    }
+    .mnt-toast-text {
+        font-size: 12px !important;
+        color: #e2e8f0 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+    .mnt-toast-text strong {
+        color: #ffffff !important;
+    }
+    .mnt-toast-right {
+        display: flex !important;
+        align-items: center !important;
+        gap: 12px !important;
+        flex-shrink: 0 !important;
+    }
+    .mnt-toast-timer-pill {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        font-size: 12px !important;
+        background: rgba(245, 158, 11, 0.15) !important;
+        border: 1px solid rgba(245, 158, 11, 0.35) !important;
+        padding: 3px 10px !important;
+        border-radius: 6px !important;
+    }
+    .mnt-toast-countdown {
+        color: #fbbf24 !important;
+        font-weight: 700 !important;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+    }
+    .mnt-toast-close {
+        background: rgba(51, 65, 85, 0.8) !important;
+        border: none !important;
+        color: #cbd5e1 !important;
+        width: 24px !important;
+        height: 24px !important;
+        border-radius: 6px !important;
+        cursor: pointer !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 12px !important;
+        transition: background 0.2s, color 0.2s !important;
+    }
+    .mnt-toast-close:hover {
+        background: #ef4444 !important;
+        color: #ffffff !important;
+    }
+
+    #maintenanceLockOverlay.mnt-overlay {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        z-index: 99999999 !important;
+        background: #020617 !important;
+        color: #ffffff !important;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 20px !important;
+        box-sizing: border-box !important;
+        overflow-y: auto !important;
+        transition: opacity 0.5s ease !important;
+    }
+    #maintenanceLockOverlay.mnt-hidden {
+        opacity: 0 !important;
+        pointer-events: none !important;
+        display: none !important;
+    }
+    .mnt-card {
+        position: relative !important;
+        max-width: 620px !important;
+        width: 100% !important;
+        background: rgba(15, 23, 42, 0.94) !important;
+        backdrop-filter: blur(24px) !important;
+        -webkit-backdrop-filter: blur(24px) !important;
+        border: 1px solid rgba(245, 158, 11, 0.35) !important;
+        border-radius: 36px !important;
+        padding: 44px 32px !important;
+        text-align: center !important;
+        box-shadow: 0 0 100px rgba(245, 158, 11, 0.15), 0 30px 60px -12px rgba(0, 0, 0, 0.9) !important;
+        box-sizing: border-box !important;
+        margin: auto !important;
+    }
+    .mnt-logo-ring {
+        position: relative !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 96px !important;
+        height: 96px !important;
+        border-radius: 28px !important;
+        background: #020617 !important;
+        border: 1px solid rgba(245, 158, 11, 0.4) !important;
+        margin-bottom: 24px !important;
+        box-shadow: 0 0 30px rgba(245, 158, 11, 0.25) !important;
+    }
+    .mnt-logo-img {
+        max-width: 64px !important;
+        max-height: 64px !important;
+        object-fit: contain !important;
+    }
+    .mnt-badge {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        padding: 6px 18px !important;
+        border-radius: 50px !important;
+        background: rgba(245, 158, 11, 0.1) !important;
+        border: 1px solid rgba(245, 158, 11, 0.3) !important;
+        color: #fbbf24 !important;
+        font-size: 11px !important;
+        font-weight: 800 !important;
+        letter-spacing: 1px !important;
+        text-transform: uppercase !important;
+        margin-bottom: 20px !important;
+    }
+    .mnt-dot-amber {
+        width: 8px !important;
+        height: 8px !important;
+        border-radius: 50% !important;
+        background-color: #fbbf24 !important;
+        box-shadow: 0 0 10px #fbbf24 !important;
+        display: inline-block !important;
+    }
+    .mnt-title {
+        font-size: 26px !important;
+        font-weight: 900 !important;
+        color: #ffffff !important;
+        line-height: 1.3 !important;
+        margin: 0 0 12px 0 !important;
+    }
+    .mnt-desc {
+        font-size: 14px !important;
+        color: #cbd5e1 !important;
+        line-height: 1.6 !important;
+        margin: 0 auto 32px auto !important;
+        max-width: 480px !important;
+    }
+    .mnt-grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 12px !important;
+        max-width: 480px !important;
+        margin: 0 auto 28px auto !important;
+    }
+    .mnt-box {
+        background: linear-gradient(180deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.95) 100%) !important;
+        border: 1px solid rgba(245, 158, 11, 0.25) !important;
+        border-radius: 20px !important;
+        padding: 16px 8px !important;
+        text-align: center !important;
+        box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1), 0 10px 25px -5px rgba(0, 0, 0, 0.5) !important;
+    }
+    .mnt-num {
+        display: block !important;
+        font-family: 'Courier New', Courier, monospace, sans-serif !important;
+        font-size: 32px !important;
+        font-weight: 900 !important;
+        background: linear-gradient(135deg, #fbbf24 0%, #f97316 100%) !important;
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        line-height: 1 !important;
+    }
+    .mnt-label {
+        display: block !important;
+        font-size: 10px !important;
+        font-weight: 700 !important;
+        color: #94a3b8 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
+        margin-top: 6px !important;
+    }
+    .mnt-info-pill {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        background: rgba(2, 6, 23, 0.9) !important;
+        padding: 8px 20px !important;
+        border-radius: 16px !important;
+        border: 1px solid rgba(51, 65, 85, 0.8) !important;
+        font-size: 12px !important;
+        color: #94a3b8 !important;
+        margin-bottom: 28px !important;
+    }
+    .mnt-info-pill strong {
+        color: #fef08a !important;
+    }
+    .mnt-footer {
+        padding-top: 20px !important;
+        border-top: 1px solid rgba(51, 65, 85, 0.6) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 12px !important;
+    }
+    .mnt-footer-text {
+        font-size: 12px !important;
+        color: #64748b !important;
+    }
+    .mnt-btn-login {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        padding: 10px 22px !important;
+        background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%) !important;
+        color: #ffffff !important;
+        font-size: 12px !important;
+        font-weight: 700 !important;
+        border-radius: 14px !important;
+        text-decoration: none !important;
+        box-shadow: 0 10px 20px rgba(245, 158, 11, 0.25) !important;
+        transition: transform 0.2s ease !important;
+    }
+    .mnt-btn-login:hover {
+        transform: translateY(-2px) !important;
+        color: #ffffff !important;
+    }
+    .mnt-btn-logout {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        padding: 10px 20px !important;
+        background: rgba(225, 29, 72, 0.18) !important;
+        border: 1px solid rgba(225, 29, 72, 0.45) !important;
+        color: #fecdd3 !important;
+        font-size: 12px !important;
+        font-weight: 700 !important;
+        border-radius: 14px !important;
+        cursor: pointer !important;
+        transition: all 0.2s ease !important;
+    }
+    .mnt-btn-logout:hover {
+        background: rgba(225, 29, 72, 0.4) !important;
+        color: #ffffff !important;
+        border-color: rgba(225, 29, 72, 0.7) !important;
+    }
+
+    @media (max-width: 640px) {
+        .mnt-card { padding: 32px 20px !important; }
+        .mnt-title { font-size: 20px !important; }
+        .mnt-num { font-size: 24px !important; }
+        .mnt-footer { flex-direction: column !important; gap: 16px !important; }
+    }
+
