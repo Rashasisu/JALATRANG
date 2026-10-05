@@ -27,7 +27,7 @@
 
                     <div class="card-body p-4">
                         <form action="{{ route('berita.store') }}" method="POST" enctype="multipart/form-data" novalidate>
-                            @csrf
+                           
 
                             {{-- Judul --}}
                             <div class="mb-3">
